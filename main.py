@@ -1,1 +1,4 @@
-from src.mlProject.config.configuration import main 
+from mlProject  import logger
+
+
+logger.info("This is from mlproject")
