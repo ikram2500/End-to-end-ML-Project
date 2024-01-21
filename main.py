@@ -1,6 +1,6 @@
 from mlProject  import logger
 from mlProject.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
-
+from mlProject.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
 
 
 
@@ -13,3 +13,13 @@ try:
 except Exception as e:
     logger.exception(e)
     raise e
+
+
+
+STAGE_NAME = "Data Validation stage"
+try:
+        logger.info(f">>>>>>>>>>>>> {STAGE_NAME} started <<<<<<<<<")
+        DataValidationTrainingPipeline().main()
+        logger.info(f"Completed {STAGE_NAME}")
+except Exception as e:
+        logger.error(f"Failed {STAGE_NAME}", exc_info=True)
