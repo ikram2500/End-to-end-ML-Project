@@ -2,7 +2,7 @@ from mlProject  import logger
 from mlProject.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 from mlProject.pipeline.stage_02_data_validation import DataValidationTrainingPipeline 
 from mlProject.pipeline.stage_03_data_transformation import DataTransformationTrainingPipeline
-
+from mlProject.pipeline.stage_04_model_trainer import ModelTrainerTrainingPipeline
 
 
 STAGE_NAME = "Data Ingestion stage"
@@ -32,3 +32,12 @@ logger.info(f">>>>>>>>>>>>> {STAGE_NAME} started <<<<<<<<<")
 DataTransformationTrainingPipeline().main()
 logger.info(f"Completed {STAGE_NAME}")
 
+STAGE_NAME = "Model Trainer stage"
+
+try:
+        logger.info(f"Executing {STAGE_NAME}")
+        ModelTrainerTrainingPipeline().main()
+        logger.info(f"{STAGE_NAME} completed")
+except Exception as e:
+        logger.error(f"{STAGE_NAME} failed with error: {e}")
+    
